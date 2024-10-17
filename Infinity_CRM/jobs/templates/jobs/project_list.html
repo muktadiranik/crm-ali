@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content%}
+<h1 class="text-3xl text-black pb-6">Projects List</h1>
+
+<div class="w-full mt-12">
+    <p class="text-xl pb-3 flex items-center">
+        <i class="fas fa-list mr-3"></i> <a class="text-gray-500 hover:text-blue-500" href="{% url 'projects-create' %}">
+            Create a new Project
+        </a> 
+    </p>
+    <div class="bg-white overflow-auto">
+        <table class="min-w-full bg-white table-auto border-black ">
+            <thead class="upgrade-btn text-white">
+                <tr>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Code</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Client ID </th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Status</th> 
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th> 
+                </tr>
+            </thead>
+            <tbody class="text-gray-700 border-black ">
+                {% for Project in object_list %}
+                <tr>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Project.id }}" style="display: block; ">{{ Project.name }}</a></td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600">
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Projectt.id }}" style="display: block; ">{{ Project.code }}</a></td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600">
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Projectt.id }}" style="display: block; ">{{ Project.clientID }}</a></td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600">
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Project.id }}" style="display: block; ">{{ Project.status }}</a></td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600">
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  "><a href="/{{ tag }}/update/{{ Project.id }}"> Edit </a>,<a href="/{{ tag }}/delete/{{ Project.id }}"{{ Project.id }}> Delete </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+ {% endblock content%}

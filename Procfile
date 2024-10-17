@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath Infinity_CRM Infinity_CRM.wsgi --log-file -

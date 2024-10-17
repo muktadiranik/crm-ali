@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content%}
+<h1 class="text-3xl text-black pb-6">Clients List</h1>
+
+<div class="w-full mt-12">
+    <p class="text-xl pb-3 flex items-center">
+        <i class="fas fa-list mr-3"></i> <a class="text-gray-500 hover:text-blue-500" href="{% url 'clients-create' %}">
+            Create a new Client
+        </a> 
+    </p>
+    <div class="bg-white overflow-auto">
+        <table class="min-w-full bg-white">
+            <thead class="upgrade-btn text-white">
+                <tr>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Code</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Type</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Address</th> 
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">City</th> 
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">State</th> 
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Zip Code</th> 
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Region ID</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Actions</th>  
+                </tr>
+            </thead>
+            <tbody class="text-gray-700">
+                {% for Client in object_list %}
+                <tr>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.name }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.code }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.type }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.address }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.city }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.state }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.zipcode }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  border-r border-gray-600"><a href="/{{ tag }}/detail/{{ Client.id }}"style= "display: block; ">{{ Client.regionID }}</a></td>
+                    <td class="w-1/3 text-left py-3 px-4 uppercase  "><a href="/{{ tag }}/update/{{ Client.id }}"> Edit </a>,<a href="/{{ tag }}/delete/{{ Client.id }}"> Delete </a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+ {% endblock content%}
